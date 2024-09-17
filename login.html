@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Login</title>
+        <link rel="stylesheet" href="login.css">
+        <style>
+            h1,
+            form {
+                text-align: center;
+            }
+            p {
+                text-align: center;
+            }
+        </style>
+        </head>
+        <body>
+            <h1>Login</h1>
+            <form action="">
+                <input type="email" placeholder="Email" id="username" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required/>
+                <input type="password" placeholder="Password" id="password"/>
+                <input type="button" value="Login" id="tombol"/>
+              </form>
+              <p id="error-message"></p>
+                <script>
+                    const bnTombol = document.querySelector("#tombol");
+                    const txEmail = document.querySelector("#username");
+                    const txPassword = document.querySelector("#password");
+                    const errorMessage = document.querySelector("#error-message");
+
+                    bnTombol.addEventListener("click", function () {
+                     //console.log(txUsername.value)   
+                    // if (txPassword.value == "nanadia") {
+                    //    console.log("Username anda benar<3");
+                    // }
+                     //if (txPassword.value == "badia"){
+                     //   console.log("Password anda benar<3");
+                     //}
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+                if (txEmail.value.match(emailRegex)) {
+                     if (txEmail.value == "nanadia@gmail.com" && txPassword.value == "badia") {
+                        window.location = "index2.html";
+                     // Login berhasil
+                        } else if (txEmail.value == "nanadia@gmail.com" && txPassword.value !== "badia") {
+                    errorMessage.textContent = "Password anda salah, silahkan cek kembali!";
+                        }else {
+                      //  console.log("Username dan password anda salah!");
+                      errorMessage.textContent = "Username dan password anda salah, silahkan cek kembali!";
+                    }
+                }else { 
+                    errorMessage.textContent = "Format email tidak valid, silahkan cek kembali!";
+                    }    
+                    });
+                </script>
+        </body>
+</html>
